@@ -1,6 +1,6 @@
 # GM2 LazAI DAT Processor
 
-A Node.js backend service for processing LazAI Data Attestation Tokens (DAT) in the GM2 ecosystem. This service handles the minting of DAT tokens, encryption of privacy data, IPFS storage, and blockchain attestation processing.
+A Node.js backend service for processing LazAI Data Anchoring Token (DAT) in the GM2 ecosystem. This service handles DAT minting, private data encryption, IPFS storage, and blockchain attestation.
 
 ## Demo
 
@@ -14,12 +14,16 @@ For a complete demonstration of the LazAI DAT processing workflow, visit our liv
 
 ### Complete End-to-End Flow
 
-1. **User Interaction**: Creator chats with AI (prompt + context + assets) in GM2.Social to create meme tokens
-2. **Data Contribution & DAT Minting**: GM2.Social Backend contributes data and mints DAT to GM2.Social Treasury, receiving `jobId` + `fileId` (stored in backend)
+```rust
+User -> GM2.Social -> LazAI Node -> VerifyComputing Contract -> DB -> Frontend Badge
+```
+
+1. **User Interaction**: Creator chats with AI (prompt + context + assets) in GM2.Social to create meme tokens.
+2. **Data Contribution & DAT Minting**: GM2.Social Backend contributes data and mints DAT to GM2.Social Treasury, returns `jobId` + `fileId` (stored in backend)
 
 3. **LazAI Inference**: Backend calls LazAI Inference Node (OpenAI-style) with settlement headers containing `fileId`
 
-4. **On-chain Settlement**: Request reward returns DAT with owner = GM2.Social Treasury
+4. **On-chain Settlement**: Request reward mints DAT with owner = GM2.Social Treasury
 
 5. **Attestation Tracking**: Cron job queries VerifyComputing contract to store `attestationHash` with the user's meme token in database and return to frontend
 
@@ -31,21 +35,21 @@ For a complete demonstration of the LazAI DAT processing workflow, visit our liv
 
 The GM2 LazAI DAT Processor is responsible for:
 
-- Minting Data Attestation Tokens (DAT) for projects
-- Encrypting and storing private data on IPFS
+- Minting Data Anchoring Tokens (DAT) for projects
+- Encrypt & store private data on IPFS
 - Interacting with LazAI's verified computing nodes
-- Processing blockchain attestations and proof verification
+- Processing on-chain attestations and proof verification
 - Managing job queues for asynchronous processing
 
 ## Features
 
-- **Data Encryption**: Secure encryption of privacy data using project-specific keys
-- **IPFS Integration**: Decentralized storage of encrypted data via Pinata
-- **LazAI Integration**: Full integration with LazAI's verified computing network
-- **Blockchain Processing**: Automated processing of on-chain attestations
-- **Job Queue Management**: Redis-based job processing with retry mechanisms
-- **Database Integration**: TypeORM with MySQL for data persistence
-- **Modular Architecture**: Clean separation of concerns with dependency injection
+- **Data Encryption**: RSA + project-specific keys
+- **IPFS Integration**: Pinata-based storage
+- **LazAI Integration**: Verified computing nodes
+- **Blockchain Processing**: Automated attestations
+- **Job Queue Management**: Redis + BullMQ with retries
+- **Database Integration**: MySQL (TypeORM)
+- **Modular Architecture**: Dependency injection
 
 ## Technology Stack
 
