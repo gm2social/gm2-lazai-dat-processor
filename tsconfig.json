@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "target": "ES2024",
+        "module": "node16",
+        "moduleResolution": "node16",
+        "strictNullChecks": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "declaration": true,
+        "allowJs": true,
+        "outDir": "./dist",
+        "rootDir": "./src",
+        "paths": {
+            "@app/*": ["src/app/*"],
+            "@modules/*": ["src/modules/*"]
+        },
+    },
+    "include": [
+        "./src/**/*.ts", "./src/**/*.js"
+,     ]
+}

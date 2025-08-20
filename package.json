@@ -1,0 +1,47 @@
+{
+  "name": "gm2-lazai-dat-processor",
+  "version": "0.0.1",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "rimraf ./dist && tsc --build",
+    "start": "node -r module-alias/register -r dotenv/config dist/main.js",
+    "start:dev": "nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "_moduleAliases": {
+    "@app": "dist/app",
+    "@modules": "dist/modules"
+  },
+  "dependencies": {
+    "@blazjs/auth": "^0.0.4",
+    "@blazjs/cache": "^0.0.4",
+    "@blazjs/common": "^0.0.4",
+    "@blazjs/datasource": "^0.0.4",
+    "@blazjs/queue": "^0.0.4",
+    "@bull-board/express": "^6.9.6",
+    "alith": "^0.12.1",
+    "axios": "^1.9.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
+    "ethers": "^6.14.0",
+    "module-alias": "^2.2.3",
+    "mysql2": "^3.14.1",
+    "node-rsa": "^1.1.1",
+    "rimraf": "^6.0.1",
+    "round-robin-js": "^3.0.8",
+    "tsconfig-paths": "^4.2.0",
+    "typedi": "^0.10.0",
+    "typeorm": "^0.3.20"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.14",
+    "@types/node-rsa": "^1.1.4",
+    "nodemon": "^3.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.2"
+  }
+}
